@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Formulário</title>
+        <link rel="stylesheet" type="text/css" href="Formulário.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Preencha seu formulário:</h1>
+            <hr>
+        </header>
+    
+        <form>
+
+            <div id="iinfoPessoais">
+
+                <h2>Informações Pessoais:</h2>
+
+                <label>Nome</label>
+                <br>
+                <input type="text" id="inome" onfocus="limparInput('icpf')" onblur="verificarNome('inome')">
+
+                <br><br>
+        
+                <label>Nome da Mãe</label>
+                <br>
+                <input type="text" id="inomeMae" onfocus="limparInput('icpf')" onblur="verificarNome('inomeMae')">
+
+                <br><br>
+        
+                <label>Nome do Pai</label>
+                <br>
+                <input type="text" id="inomePai" onfocus="limparInput('icpf')" onblur="verificarNome('inomePai')">
+
+                <br><br>
+        
+                <label >Identidade</label>
+                <br>
+                <input type="text" id="iidt">
+
+                <br><br>
+        
+                <label>CPF</label>
+                <br>
+                <input type="text" id="icpf" onfocus="limparInput('icpf')" onblur="verificarCpf()">
+
+                <br><br>
+        
+                <label >Tel</label>
+                <br>
+                <input type="tel" id="itel">
+
+                <br><br>
+        
+                <label>Cel</label>
+                <br>
+                <input type="tel" id="icel">
+
+                <br><br>
+    
+                <label>Email</label>
+                <br>
+                <input type="email" id="iemail" onfocus="limparInput('iemail')" onblur="verificarEmail()">
+
+                <br><br>
+                
+                <h3>Gênero</h3>
+        
+                <labe>Masculino</labe><input type="radio" id="imasculino" class="genero" name="genero" value="masculino" onclick="genero('m')">
+                <br>
+                <labe>Feminino  </labe><input type="radio" id="ifeminino" class="genero" name="genero" value="feminino"  onclick="genero('f')">
+
+                <br><br>
+        
+                <label>Data de nascimento</label>
+                <br>
+                <input type="date" id="idNascimento">
+
+                <br><br>
+        
+                <label>Cidade de nascimento</label>
+                <br>
+                <input type="text" id="icNascimento">
+
+                <br><br>
+
+                <label>UF:</label>
+                <br>
+                <select id="iufNascimento">
+                    <option value="ac">AC</option>
+                    <option value="al">AL</option>
+                    <option value="ap">AP</option>
+                    <option value="am">AM</option>
+                    <option value="ba">BA</option>
+                    <option value="ce">CE</option>
+                    <option value="df">DF</option>
+                    <option value="es">ES</option>
+                    <option value="go">GO</option>
+                    <option value="ma">MA</option>
+                    <option value="mt">MT</option>
+                    <option value="ms">MS</option>
+                    <option value="mg">MG</option>
+                    <option value="pa">PA</option>
+                    <option value="pb">PB</option>
+                    <option value="pr">PR</option>
+                    <option value="pe">PE</option>
+                    <option value="pi">PI</option>
+                    <option value="rj">RJ</option>
+                    <option value="rn">RN</option>
+                    <option value="rs">RS</option>
+                    <option value="ro">RO</option>
+                    <option value="rr">RR</option>
+                    <option value="sc">SC</option>
+                    <option value="sp">SP</option>
+                    <option value="se">SE</option>
+                    <option value="to">TO</option>
+                </select>
+
+                <br><br>
+
+                <h3>Nível de escolaridade:</h3>
+        
+                <input type="checkbox" class="genero" id="i1incompleto" name="escolaridade" value="1incompleto"><label for="i1incompleto">1° grau incompleto.</label>
+                <br>
+                <input type="checkbox" class="genero" id="i1completo" name="escolaridade" value="1completo"><label for="i1completo">1° grau completo.  </label>
+                <br>
+                <br>
+                <input type="checkbox" class="genero" id="i2incompleto" name="escolaridade" value="2incompleto"><label for="i2incompleto">2° grau incompleto.</label>
+                <br>
+                <input type="checkbox" class="genero" id="i2completo" name="escolaridade" value="2completo"><label for="i2completo">2° grau completo.  </label>
+                <br>
+                <br>
+                <input type="checkbox" class="genero" id="i3incompleto" name="escolaridade" value="3incompleto"><label for="i3incompleto">3° grau incompleto.</label>
+                <br>
+                <input type="checkbox" class="genero" id="i3completo" name="escolaridade" value="3completo"><label for="i3completo">3° grau completo.  </label>
+
+                <br><br>
+
+            </div>
+
+            <br>
+
+            <div id="iendereco">
+                
+                <h2>Endereço:</h2>
+
+                <br><br>
+
+                <label>CEP</label>
+                <br>
+                <input type="text" id="icep">
+
+                <br><br>
+
+                <label>UF:</label>
+                <br>
+                <select id="iufEndereco">
+                    <option value="ac">AC</option>
+                    <option value="al">AL</option>
+                    <option value="ap">AP</option>
+                    <option value="am">AM</option>
+                    <option value="ba">BA</option>
+                    <option value="ce">CE</option>
+                    <option value="df">DF</option>
+                    <option value="es">ES</option>
+                    <option value="go">GO</option>
+                    <option value="ma">MA</option>
+                    <option value="mt">MT</option>
+                    <option value="ms">MS</option>
+                    <option value="mg">MG</option>
+                    <option value="pa">PA</option>
+                    <option value="pb">PB</option>
+                    <option value="pr">PR</option>
+                    <option value="pe">PE</option>
+                    <option value="pi">PI</option>
+                    <option value="rj">RJ</option>
+                    <option value="rn">RN</option>
+                    <option value="rs">RS</option>
+                    <option value="ro">RO</option>
+                    <option value="rr">RR</option>
+                    <option value="sc">SC</option>
+                    <option value="sp">SP</option>
+                    <option value="se">SE</option>
+                    <option value="to">TO</option>
+                </select>
+
+                <br><br>
+
+                <label>Cidade</label>
+                <br>
+                <input type="text" id="icidade">
+
+                <br><br>
+        
+                <label>Bairro</label>
+                <br>
+                <input type="text" id="ibairro">
+
+                <br><br>
+        
+                <label>Rua</label>
+                <br>
+                <input type="text" id="irua">
+
+                <br><br>
+        
+                <label>N°</label>
+                <br>
+                <input type="number" id="inumero">
+
+                <br><br>
+        
+                <label>Complemento(opcional)</label>
+                <br>
+                <input type="text" id="icomp">
+
+                <br><br><br>
+
+            </div>
+
+            <br>
+
+            <div>
+
+                <h2>Qualificações(mais que 100 caracteres):</h2>
+
+                <textarea id="itexto" name="texto" onblur="verificarTxt()"></textarea>
+
+                <br><br><br>
+            </div>
+
+            <button>Enviar</button >
+
+            <br><br>
+        
+        </form>
+
+        <script>
+
+            var nome = document.getElementById("inome");
+            var nomeMae = document.getElementById("inomeMae");
+            var nomePai = document.getElementById("inomePai");
+            var idt = document.getElementById("iidt");
+            var cpf = document.getElementById("icpf");
+            var tel = document.getElementById("itel");
+            var cel = document.getElementById("icel");
+            var email = document.getElementById("iemail");
+            var genero = document.getElementsByName("igenero");
+            var dNascimento = document.getElementById("idNascimento");
+            var cNascimento = document.getElementById("icNascimento");
+            var ufNascimento = document.getElementById("iufNascimento");
+            var escolaridade = document.getElementsByName("iescolaridade");
+            var cep = document.getElementById("icep");
+            var ufEndereco = document.getElementById("iufEndereco");
+            var cidade = document.getElementById("icidade");
+            var bairro = document.getElementById("ibairro");
+            var rua = document.getElementById("irua");
+            var numero = document.getElementById("inumero");
+            var texto = document.getElementById("itexto");
+            
+
+
+            function limparInput(idInput){
+
+                if(document.getElementById(idInput).style.border == "1px solid red"){
+                    document.getElementById(idInput).style.border = "1px solid black";
+                    document.getElementById(idInput).style.color = "black";
+                    document.getElementById(idInput).value = null;
+
+                }else{
+
+                    if(document.getElementById(idInput).style.border == "1px solid green"){
+
+                        document.getElementById(idInput).style.border = "1px solid black";
+                    }
+                }
+            }
+
+            function verificarEmail(){
+                
+                var verEmail = false;
+                var valorArroba = null;
+                var email = email.value;
+                var e = [];
+                var contArroba = null;
+                var contPonto = null;
+
+                for(let i = 0 ; i<email.length ; i++){
+
+                    e.push(email.charAt(i));
+                }
+
+                for(let i = 0 ; i<e.length ; i++){
+
+                    if(e[i] == '@'){
+
+                        contArroba++;
+
+                        for(let j = i ; j<e.length ; j++){
+
+                            if(e[j] == '.'){
+
+                                contPonto++;
+                                valorArroba = i;
+                            }
+                        }
+                    }
+                }
+
+                if(contArroba == 1){
+
+                    if(valorArroba >= 2){
+                        
+                        if(contPonto == 1){
+                            
+                            verEmail = true;
+                            
+                        }
+                    }
+                }
+
+                if(verEmail == true){
+
+                    email.style.border = "1px solid green";
+
+                }else{
+
+                email.style.border = "1px solid red";
+                email.style.color = "red";
+                email.value = "O email digitado é inválido";
+                }
+            }
+
+            function genero(g){
+
+                if(g == "m"){
+
+                    genero.value = 'masculino';
+
+                }else{
+
+                    genero.value = 'feminino';
+                }
+            }
+
+            function verificarNome(idNome){
+
+                var valid = true;
+
+                var nomeAux = document.getElementById(idNome).value;
+
+                nomeAux = nomeAux.toLowerCase();
+
+                if(nomeAux == null || nomeAux == ""){
+
+                    valid = false;
+
+                }else{
+
+                    for(let i = 0 ; i<nomeAux.length ; i++){
+                        
+                        if( nomeAux.charAt(i) != 'a' && nomeAux.charAt(i) != 'b' && nomeAux.charAt(i) != 'c' && nomeAux.charAt(i) != 'd' && nomeAux.charAt(i) != 'e' && nomeAux.charAt(i) != 'f' && nomeAux.charAt(i) != 'g' && nomeAux.charAt(i) != 'h' && nomeAux.charAt(i) != 'i' && nomeAux.charAt(i) != 'j' && nomeAux.charAt(i) != 'k' && nomeAux.charAt(i) != 'l' && nomeAux.charAt(i) != 'm' && nomeAux.charAt(i) != 'n' && nomeAux.charAt(i) != 'o' && nomeAux.charAt(i) != 'p' && nomeAux.charAt(i) != 'q' && nomeAux.charAt(i) != 'r' && nomeAux.charAt(i) != 's' && nomeAux.charAt(i) != 't' && nomeAux.charAt(i) != 'u' && nomeAux.charAt(i) != 'v' && nomeAux.charAt(i) != 'w' && nomeAux.charAt(i) != 'x' && nomeAux.charAt(i) != 'y' && nomeAux.charAt(i) != 'z' && nomeAux.charAt(i) != 'á' && nomeAux.charAt(i) != 'à' && nomeAux.charAt(i) != 'ã' && nomeAux.charAt(i) != 'â' && nomeAux.charAt(i) != 'ä' && nomeAux.charAt(i) != 'é' && nomeAux.charAt(i) != 'è' && nomeAux.charAt(i) != 'ê' && nomeAux.charAt(i) != 'ë' && nomeAux.charAt(i) != 'í' && nomeAux.charAt(i) != 'ì' && nomeAux.charAt(i) != 'ï' && nomeAux.charAt(i) != 'ó' && nomeAux.charAt(i) != 'ò' && nomeAux.charAt(i) != 'ó' && nomeAux.charAt(i) != 'õ' && nomeAux.charAt(i) != 'ô' && nomeAux.charAt(i) != 'ö' && nomeAux.charAt(i) != 'ú' && nomeAux.charAt(i) != 'ù' && nomeAux.charAt(i) != 'û' && nomeAux.charAt(i) != 'ü' && nomeAux.charAt(i) != 'ç'){
+                            
+                        valid = false;
+                        }
+                    }
+                }
+
+                if(valid == false){
+
+                    document.getElementById(idNome).style.border = "1px solid red";
+                    document.getElementById(idNome).style.color = "red";
+                    document.getElementById(idNome).value = "O nome digitado é inválido";
+                
+                }else{
+
+                    document.getElementById(idNome).style.border = "1px solid green";
+                }
+            }
+
+            function verificarIdt(){
+
+
+            }
+
+            function verificarCpf(){
+
+                var valid = true;
+
+                for(let i = 0 ; i<cpf.length ; i++){
+
+                    if(cpf.value.charAt(i) != '0' && cpf.value.charAt(i) != '1' && cpf.value.charAt(i) != '2' && cpf.value.charAt(i) != '3' && cpf.value.charAt(i) != '4' && cpf.value.charAt(i) != '5' && cpf.value.charAt(i) != '6' && cpf.value.charAt(i) != '7' && cpf.value.charAt(i) != '8' && cpf.value.charAt(i) != '9'){
+
+                        valid = false;
+                    }
+                }
+                if(cpf.length != 11){
+
+                    valid = false;
+                }
+
+                if(valid == false){
+
+                    document.getElementById("icpf").style.border = "1px solid red";
+                    document.getElementById("icpf").style.color = "red";
+                    document.getElementById("icpf").value = "O nome cpf é inválido.";
+
+                }else{
+
+                    for(let i = 0 ; i<cpf.length ; i++){
+
+                        var v = [];
+
+                        v.push(cpf.charAt(i));
+
+                        if(cpf.charAt(i) == 2 || cpf.charAt(i) == 5){
+
+                            v.push('.');
+
+                        }else{
+
+                            if(cpf.charAt(i) == 8){
+
+                                v.push('-');
+
+                            }
+                        }
+                    }
+                    document.getElementById(iupf).value = v.toString();
+
+                    document.getElementById("icpf").style.border = "1px solid green";
+                }
+                
+            }
+
+            function verificarTxt(){
+                
+                if(document.getElementById("itexto").value.length > 100){
+                    
+                    document.getElementById("itexto").style.border = "1px solid green";
+                    
+                }else{
+                        
+                    document.getElementById("itexto").style.border = "1px solid red";
+                    document.getElementById("itexto").style.color = "red";
+                    document.getElementById("itexto").value = "Por favor, digite mais que 100 caracteres";
+                }
+            }
+
+        </script>
+
+    </body> 
+
+</html>
