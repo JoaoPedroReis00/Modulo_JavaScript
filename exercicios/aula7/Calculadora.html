@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Desafio 3</title>
+        <link rel="stylesheet" type="text/css" href="Calculadora.css">
+    </head>
+
+    <body>
+        <div id="divPrincipal">
+
+            <input type="text" id="visor">
+
+            <br>
+
+            <button onclick="apagar('CE')" class="btnApagar">CE</button>
+            <button onclick="apagar('C')" class="btnApagar">C</button>
+
+            <br>
+
+            <button onclick="op('%')">%</button>
+            <button onclick="op('@')">x^y</button>
+            <button onclick="op('v')">²Vx</button>
+            <button onclick="op('+')">+</button>
+
+            <br>
+
+            <button onclick="adicionar('1')">1</button>
+            <button onclick="adicionar('2')">2</button>
+            <button onclick="adicionar('3')">3</button>
+            <button onclick="op('-')">-</button>
+
+            <br>
+
+            <button onclick="adicionar('4')">4</button>
+            <button onclick="adicionar('5')">5</button>
+            <button onclick="adicionar('6')">6</button>
+            <button onclick="op('x')">x</button>
+
+            <br>
+
+            <button onclick="adicionar('7')">7</button>
+            <button onclick="adicionar('8')">8</button>
+            <button onclick="adicionar('9')">9</button>
+            <button onclick="op('/')">/</button>
+
+            <br>
+
+            <button onclick="adicionar('.')">.</button>
+            <button onclick="adicionar('0')">0</button>
+            <button onclick="apagar('um')">{x}</button>
+            <button onclick="total()">=</button>
+
+            <br><br>
+        </div>
+
+        <script>
+
+            var op2 = null;
+            var ops = null;
+            var n1 = null;
+            var n2 = null;
+
+            function adicionar(n){
+
+                if(document.getElementById("visor").value == 0 && n != '.'){
+
+                    document.getElementById("visor").value = n;
+
+                }else{
+
+                    if(n == '.'){
+                        
+                        if(document.getElementById("visor").value.indexOf('.') == -1){
+                            
+                            document.getElementById("visor").value += n;
+                        }
+                    }else{
+
+                        document.getElementById("visor").value += n;
+                    }
+                }
+            }
+
+            function op(sinal){
+
+                var n = parseFloat(document.getElementById("visor").value);
+
+                if(sinal == '-' && (document.getElementById("visor").value == 0 || document.getElementById("visor").value == null)){
+
+                    document.getElementById("visor").value = '-';
+
+                }else{
+
+                    if(sinal == 'v'){
+                        
+                        document.getElementById("visor").value = Math.sqrt(n);
+                        
+                    }else{
+                        
+                        ops = sinal;
+                        
+                        if(n1 == null){
+                            
+                            n1 = n;
+                            
+                            document.getElementById("visor").value = 0;
+                            op2 = sinal;
+                            
+                        }else{
+                            
+                            switch(op2){
+                                
+                                case '+':{
+
+                                    n1 = (n1+n);
+                                    
+                                    break;
+                                }
+                                case '-':{
+                                    
+                                    n1 = (n1-n);
+                                    
+                                    break;
+                                }
+                                case 'x':{
+                                    
+                                    n1 = (n1*n);
+                                    
+                                    break;
+                                }
+                                case '/':{
+                                    
+                                    n1 = (n1/n);
+                                    
+                                    break;
+                                }
+                            }
+                        }
+                        document.getElementById("visor").value = 0;
+                        op2 = sinal;
+                    }
+                }
+            }
+
+            function apagar(x){
+
+                if(x == 'um'){
+
+                    var n = document.getElementById("visor").value;
+
+                    var v = null;
+
+                    for(var i = 0 ; i < n.length-1 ; i++){
+
+                        if(v == null){
+
+                            v = n.charAt(i);
+
+                        }else{
+
+                            v = v + n.charAt(i);
+                        }
+                    }
+
+                    document.getElementById("visor").value = v;
+                }else{
+
+                    if(x == 'C'){
+                        
+                        document.getElementById("visor").value = 0;
+
+                        n1 = null;
+                        n2 = null;
+                        
+                    }else{
+                        
+                        document.getElementById("visor").value = null;
+
+                        n1 = null;
+                        n2 = null;
+                    }
+                }
+            }
+
+            function total(){
+
+                n2 = parseFloat(document.getElementById("visor").value);
+
+                switch(ops){
+
+                    case '@':{
+
+                        document.getElementById("visor").value = (n1**n2);
+
+                        break;
+                    }
+                    case '%':{
+
+                        document.getElementById("visor").value = ((n1*n2)/100);
+
+                        break;
+                    }
+                    case '+':{
+
+                        document.getElementById("visor").value = (n1+n2);
+
+                        break;
+                    }
+                    case '-':{
+
+                        document.getElementById("visor").value = (n1-n2);
+
+                        break;
+                    }
+                    case 'x':{
+
+                        document.getElementById("visor").value = (n1*n2);
+
+                        break;
+                    }
+                    case '/':{
+
+                        document.getElementById("visor").value = (n1/n2);
+
+                        break;
+                    }
+                }
+
+                n1 = null;
+                n2 = null;
+            }
+        </script>
+    </body>
+</html>
