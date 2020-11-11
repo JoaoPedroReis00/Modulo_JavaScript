@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<HTML>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 6</title>
+    </head>
+
+    <body>
+        <script>
+            var n = prompt("Digite um número inteiro:");
+
+            n = praseInt(n);
+
+            document.write("<h1>Todos os números pares de 0 a "+n+":</h1>");
+
+            var i = 0;
+
+            while(i<=n){
+
+                if(i%2 == 0){
+
+                    if(i == n||i == (n-1)){
+
+                        document.write(i+".");
+
+                    }else{
+
+                        document.write(i+", ");
+                    }
+                }
+                i++;
+            }
+        </script>
+    </body>
+</HTML>
