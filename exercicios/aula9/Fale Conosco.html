@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Fale Conosco</title>
+        <link rel="stylesheet" type="text/css" href="Fale Conosco.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Fale Conosco</h1>
+            <hr>
+        </header>
+
+        <main>
+
+            <br> 
+
+            <label>Nome:</label>
+            <br>
+            <input id="nome" type="text">
+
+            <br><br>
+
+            <label>Email:</label>
+            <br>
+            <input id="email" type="email">
+
+            <br><br>
+
+            <label>assunto:</label>
+            <br>
+            <input id="assunto" type="text">
+
+            <br><br>
+
+            <label>Texto:</label>
+            <br>
+            <textarea id="texto"></textarea>
+
+            <br><br>
+
+            <button onclick="enviar()">Enviar</button>
+
+            <br><br>
+
+        </main>
+        <br>
+
+        <script>
+
+            function enviar() {
+                
+                var nome = document.getElementById("nome").value;
+                var email = document.getElementById("email").value;
+                var assunto = document.getElementById("assunto").value;
+                var txt = document.getElementById("texto").value;
+
+                 if(nome == "" || email == "" || assunto == "" || txt == ""){
+
+                    alert("Informação importante não preenchida.");
+
+                 }else{
+
+                    document.getElementById("nome").value = null;
+                    document.getElementById("email").value = null;
+                    document.getElementById("assunto").value = null;
+                    document.getElementById("texto").value = null;
+
+                    alert("Mensagem enviada");
+                 }
+            }
+            
+        </script>
+    </body>
+
+</html>

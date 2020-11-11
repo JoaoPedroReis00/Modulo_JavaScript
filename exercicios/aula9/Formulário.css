@@ -1,0 +1,40 @@
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    font-size: 35px;
+}
+div{
+
+    text-align: center;
+    border: 1px black groove;
+    height: auto;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 50px;
+}
+input{
+
+    font-size: 25px;
+    width: 90%;
+    height: 30px;
+    margin-top: 20px;
+}
+.genero{
+    width: 30px;
+}
+#endereco{
+
+    margin-top: 50px;
+}
+button{
+
+    width: 50%;
+    height: 50px;
+    font-size: 40px;
+    margin-left: 25%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+}
