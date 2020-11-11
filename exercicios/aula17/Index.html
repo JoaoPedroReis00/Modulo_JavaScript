@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="Aula17.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Cadastro de Alunos</h1>
+        </header>
+        <div class="divPrincipal">
+            <form>
+                <div class="div2">
+                    <label id="lblNome">Nome:</label>
+                    <input type="text" id="inome" onfocus="limpar()">
+                    <p id="pNome"></p>
+                </div>
+            </form>
+            <br><br>
+            <button id="btnEnviar" onclick="enviar()">Enviar</button>
+            <br><br>
+        </div>
+    </body>
+
+    <script>
+
+        function enviar(){
+
+            let valid = false;
+            let nomePrincipal = document.getElementById('inome').value;
+            let alfabeto = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','á','à','ã','â','ä','é','è','ê','ë','í','ì','î','ï','ó','ò','õ','ô','ö','ú','ù','û','ü','ç',' '];
+
+            if(nomePrincipal != '' && nomePrincipal != null){
+
+                nomePrincipal = nomePrincipal.trim();
+
+                while(nomePrincipal.includes('  ')){
+
+                    nomePrincipal = nomePrincipal.replace('  ',' ');
+                }
+
+                let nomeAux = nomePrincipal.toLowerCase();
+
+                let cont = 0;
+
+                for(let i = 0 ; i<nomeAux.length ; i++){
+
+                    for(let j = 0 ; j<alfabeto.length ; j++){
+
+                        if(alfabeto[j] == nomeAux.charAt(i)){
+
+                            cont++;
+                        }
+                    }
+                }
+                if(cont == nomeAux.length){
+
+                    valid = true;
+                }
+            }
+
+            if(valid == true){
+
+                window.localStorage.setItem('nomePrincipal', nomePrincipal);
+
+                window.open('CadastroAlunos.html','_self');
+
+            }else{
+
+                document.getElementById('pNome').innerHTML = 'O nome digitado é inválido';
+            }
+        }
+
+        function limpar(){
+
+            document.getElementById('pNome').innerHTML = null;
+        }
+
+    </script>
+</html>

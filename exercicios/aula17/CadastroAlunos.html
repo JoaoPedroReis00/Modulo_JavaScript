@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="Aula17.css">
+    </head>
+
+    <body onload="msgBemVindo()">
+        <div class="divPrincipal">
+        <form>
+
+            <header>
+                <h1 id="ih1"></h1>
+            </header>
+
+            <div id="divH2">
+                <h2>Cadastrar Alunos:</h2>
+                <hr>
+            </div>
+
+            <p id="inumero"></p>
+
+            <div class="div2">
+                <label id="lblNome" class="lbl1">Nome:</labe>
+                <input type="text" id="inome" onfocus="limparP('pNome')" onblur="validNome(0)">
+                <p id="pNome"></p>
+            </div>
+
+            <div class="div2">
+                <label id="lblnascimento">Data de nascimento :</label>
+                <p id="iidade"></p>
+                <input type="date" id="inascimento" onfocus="limparP('pNascimento')" onblur="validNascimento(0)">
+                <p id="pNascimento"></p>
+            </div>
+
+            <div class="div2">
+                <label id="lblCpf">CPF:</label>
+                <input type="text" id="icpf" onkeypress="maskCpf()" onfocus="limparP('pCpf')" onblur="validCpf(0)">
+                <p id="pCpf"></p>
+            </div>
+
+            <div class="div2">
+                <label id="lblCidade">Cidade Natal:</label>
+                <input type="text" id="icidade" onfocus="limparP('pCidade')" onblur="validCidade(0)">
+
+                <label id="lblUf">UF:</label>
+                <select id="iufNascimento">
+                    <option value=""></option>
+                    <option value="ac">AC</option>
+                    <option value="al">AL</option>
+                    <option value="ap">AP</option>
+                    <option value="am">AM</option>
+                    <option value="ba">BA</option>
+                    <option value="ce">CE</option>
+                    <option value="df">DF</option>
+                    <option value="es">ES</option>
+                    <option value="go">GO</option>
+                    <option value="ma">MA</option>
+                    <option value="mt">MT</option>
+                    <option value="ms">MS</option>
+                    <option value="mg">MG</option>
+                    <option value="pa">PA</option>
+                    <option value="pb">PB</option>
+                    <option value="pr">PR</option>
+                    <option value="pe">PE</option>
+                    <option value="pi">PI</option>
+                    <option value="rj">RJ</option>
+                    <option value="rn">RN</option>
+                    <option value="rs">RS</option>
+                    <option value="ro">RO</option>
+                    <option value="rr">RR</option>
+                    <option value="sc">SC</option>
+                    <option value="sp">SP</option>
+                    <option value="se">SE</option>
+                    <option value="to">TO</option>
+                </select>
+                <p id="pCidade"></p>
+            </div>
+            <br><br>
+        </form>
+
+        <div class="divBtn">
+            <button onclick="cadastrar('1')" class="btn2" id="btnCadastrar">Cadastrar</button>
+            <button onclick="localizarAux()" class="btn2" id="btnLocalizar">Localizar</button>
+        </div>
+        <br><br>
+        <div class="divBtn" id="divEditar" hidden>
+            <button onclick="cadastrar('2')" class="btn2" id="btnEditar">Editar</button>
+            <button onclick="excluir()" class="btn2" id="btnExcluir">Excluir</button>
+        </div>
+
+        <br><br>
+
+        </div>
+
+        <div class="divBtn">
+            <button type="submit" id="btnFormulario" onclick="relatorio()">Ver Formulário</button>
+        </div>
+
+        <div class="divPrincipal" id="caixaTxt" hidden>
+            <div class="div2">
+                <label id="lblNome">N° de cadastro do aluno:</label>
+                <input type="text" id="inomeLoc" onfocus="limparP('pnLoc')">
+                <p id="pnLoc"></p>
+            </div>
+            <br><br>
+            <div class="divBtn" id="divLoc">
+                <button onclick="localizar()" class="btn2" id="localizar">Localizar</button>
+                <button onclick="cancelar()" class="btn2" id="cancelar">Cancelar</button>
+            </div>
+            <br><br>
+        </div>
+    </body>
+
+    <script>
+
+        console.log(window.localStorage.getItem('lista'));
+
+        class Aluno{
+
+            numero;
+            nome;
+            nascimento;
+            idade;
+            cpf;
+            cidade;
+            uf;
+        }
+
+        function msgBemVindo(){
+
+            document.getElementById('ih1').innerHTML = 'Bem vindo '+window.localStorage.getItem('nomePrincipal');
+        }
+
+        function cadastrar(op){
+
+            let lista = JSON.parse(localStorage.getItem('lista'));
+
+            let a = new Aluno();
+
+            a.nome = document.getElementById('inome').value;
+            a.nascimento = document.getElementById('inascimento').value;
+            a.cpf = document.getElementById('icpf').value;
+            a.cidade = document.getElementById('icidade').value;
+
+            let nomeAux = validNome(a);
+            let nascimentoAux = validNascimento(a);
+            let cpfAux = validCpf(a);
+            let cidadeAux = validCidade(a);
+
+            if(nomeAux && nascimentoAux && cpfAux && cidadeAux){
+
+                if(op == '1'){
+
+                    if(lista == null){
+
+                        lista = [];
+
+                        console.log(1);
+                        a.numero = 1;
+
+                    }else{
+
+                        console.log(2);
+                        a.numero = (lista.length + 1);
+
+                    }
+                    lista.push(a);
+
+                }else{
+
+                    let iLoc = parseInt(localStorage.getItem('iLoc'));
+
+                    a.numero = iLoc+1;
+
+                    lista[iLoc] = a;
+
+                    console.log(lista[iLoc]);
+
+                    document.getElementById('divEditar').hidden = true;
+                }
+
+                window.localStorage.setItem('lista', JSON.stringify(lista));
+                
+                document.getElementById('inumero').innerHTML = null;
+                document.getElementById('inome').value = null;
+                document.getElementById('inascimento').value = null;
+                document.getElementById('iidade').innerHTML = null;
+                document.getElementById('icpf').value = null;
+                document.getElementById('icidade').value = null;
+                document.getElementById('iufNascimento').value = '';
+
+            }
+        }
+
+        function localizarAux(){
+
+            document.getElementById('caixaTxt').hidden = false;
+        }
+
+        function cancelar(){
+
+            document.getElementById('caixaTxt').hidden = true;
+        }
+
+        function localizar(){
+
+            let lista = JSON.parse(localStorage.getItem('lista'));
+
+            let n = document.getElementById('inomeLoc').value;
+
+            aux = false;
+
+            if(n != "" && n != null){
+
+                for(let i = 0 ; i<lista.length ; i++){
+
+                    if(lista[i].numero == n){
+
+                        aux = true;
+
+                        document.getElementById('caixaTxt').hidden = true;
+
+                        document.getElementById('inumero').innerHTML = 'N° : '+lista[i].numero;
+                        document.getElementById('inome').value = lista[i].nome;
+                        document.getElementById('inascimento').value = lista[i].nascimento;
+                        document.getElementById('icpf').value = lista[i].cpf;
+                        document.getElementById('icidade').value = lista[i].cidade;
+                        document.getElementById('iufNascimento').value = lista[i].uf;
+
+                        document.getElementById('divEditar').hidden = false;
+
+                        window.localStorage.setItem('iLoc' , i);
+
+                        break;
+                    }
+                }
+            }else{
+
+                document.getElementById('pnLoc').innerHTML = 'Por favor, digite um número para ser localizado.';
+            }
+            if(aux == false){
+
+                document.getElementById('pnLoc').innerHTML = 'Número não encontrado.';
+            }
+        }
+
+        function excluir(){
+
+            let lista = JSON.parse(localStorage.getItem('lista'));
+
+            let iLoc = parseInt(localStorage.getItem('iLoc'));
+
+            let n = lista[iLoc].numero;
+            
+            let aux = false;
+            
+            if(n != "" && n != null){
+
+                let listaAux = [];
+                
+                for(let i = 0 ; i<lista.length ; i++){
+
+                    if(lista[i].numero == n){
+
+                        aux = true;
+
+                        break;
+                    }
+                }
+
+                if(aux == true){
+
+                    let cont = 0;
+
+                    for(let i = 0 ; i<lista.length ; i++){
+
+                        if(lista[i].numero != n){
+
+                            cont++;
+
+                            lista[i].numero = cont;
+
+                            listaAux.push(lista[i]);
+                        }
+                    }
+
+                    lista = [];
+
+                    for(let i = 0 ; i<listaAux.length ; i++){
+
+                        lista.push(listaAux[i]);
+                    }
+
+                    window.localStorage.setItem('lista', JSON.stringify(lista));
+
+                    document.getElementById('divEditar').hidden = true;
+
+                    document.getElementById('inumero').innerHTML = null;
+                    document.getElementById('inome').value = null;
+                    document.getElementById('inascimento').value = null;
+                    document.getElementById('iidade').innerHTML = null;
+                    document.getElementById('icpf').value = null;
+                    document.getElementById('icidade').value = null;
+                    document.getElementById('iufNascimento').value = '';
+
+
+                }else{
+                
+                    alert("Nome não encontrado.");
+                
+                }
+
+            }else{
+
+                alert("Nome não digitado.");
+            }
+        }
+
+        function relatorio(){
+
+            window.open('Relatório.html','_self');
+        }
+
+        function validNome(a){
+
+            if(a == 0){
+
+                a = new Aluno();
+
+                a.nome = document.getElementById('inome').value;
+            }
+
+            let alfabeto = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','á','à','ã','â','ä','é','è','ê','ë','í','ì','î','ï','ó','ò','õ','ô','ö','ú','ù','û','ü','ç',' '];
+            let valid = false;
+
+            if(a.nome != '' && a.nome != null){
+
+                a.nome = a.nome.trim();
+
+                while(a.nome.includes('  ')){
+
+                    a.nome = a.nome.replace('  ',' ');
+                }
+
+                let nomeAux = a.nome.toLowerCase();
+
+                let cont = 0;
+
+                for(let i = 0 ; i<nomeAux.length ; i++){
+
+                    for(let j = 0 ; j<alfabeto.length ; j++){
+
+                        if(nomeAux.charAt(i) == alfabeto[j]){
+
+                            cont++;
+                        }
+                    }
+                }
+
+                if(cont == nomeAux.length){
+
+                    valid = true;
+
+                }else{
+
+                    inputInvalida('pNome', 'nome');
+                }
+            }else{
+
+                inputVazia('pNome', 'nome');
+            }
+            return valid;
+        }
+
+        function validNascimento(a){
+
+            if(a == 0){
+                
+                a = new Aluno();
+                
+                a.nascimento = document.getElementById('inascimento').value;
+            }
+
+            let data = new Date;
+            let valid = true;
+
+            let ano = "";
+            let mes = "";
+            let dia = "";
+
+            if(a.nascimento != null && a.nascimento != ''){
+
+                for(let i = 0 ; i<a.nascimento.length ; i++){
+
+                    switch(i){
+
+                    case 0: case 1: case 2: case 3:{
+
+                        ano += a.nascimento.charAt(i);
+
+                        break;
+                    }
+                    case 5: case 6:{
+
+                        mes += a.nascimento.charAt(i);
+
+                        break;
+                    }
+                    case 8: case 9:{
+
+                        dia += a.nascimento.charAt(i);
+
+                        break;
+                    }
+                    }
+                }
+
+                if(ano < 1900 || ano > data.getFullYear()){
+
+                    valid = false;
+
+                    document.getElementById('pNascimento').innerHTML = 'A data de nascimento digitada é inválida.';
+
+                }else{
+
+                    if(ano == data.getFullYear()){
+
+                        if(mes > data.getMonth()){
+
+                            valid = false;
+
+                            document.getElementById('pNascimento').innerHTML = 'A data de nascimento digitada é inválida.';
+
+                        }else{
+
+                            if(mes == data.getMonth()){
+
+                                if(dia >= data.getDay()){
+
+                                    valid = false;
+                                    
+                                    document.getElementById('pNascimento').innerHTML = 'A data de nascimento digitada é inválida.';
+                                }
+                            }
+                        }
+                    }
+                }
+            }else{
+
+                valid = false;
+
+                document.getElementById('pNascimento').innerHTML = 'Data de nascimento não digitada.';
+            } 
+
+            if(valid == true){
+
+                a.idade = verificarIdade(dia, mes, ano);
+
+                document.getElementById('iidade').innerHTML = 'Idade : '+a.idade+' anos';
+            }
+
+            return valid;
+        }
+
+        function verificarIdade(dia, mes, ano){
+
+            let data = new Date();
+
+            let idadeAux = data.getFullYear() - ano;
+
+            if((data.getMonth() + 1) < mes){
+
+                idadeAux--;
+
+            }else{
+
+                if((data.getMonth() + 1) == mes){
+
+                    if(data.getDate() < dia){
+
+                        idadeAux--;
+                    }
+                }
+            }
+            return idadeAux;
+        }
+
+        function validCpf(a){
+
+            if(a == 0){
+
+                a = new Aluno();
+
+                a.cpf = document.getElementById('icpf').value;
+            }
+
+            let valid = false;
+            let numeros = ['0','1','2','3','4','5','6','7','8','9'];
+            let auxCpf = null;
+
+            auxCpf = a.cpf.trim();
+            
+            while(auxCpf.includes(" ")){
+                
+                auxCpf = auxCpf.replace(" ","");
+            }
+
+            let nCpf = '';
+
+            for(let i = 0 ; i<auxCpf.length ; i++){
+
+                for(let j = 0 ; j<numeros.length ; j++){
+
+                    if(auxCpf.charAt(i) == numeros[j]){
+
+                        nCpf += auxCpf.charAt(i);
+                    }
+                }
+            }
+
+            if(auxCpf != null && auxCpf != "" && nCpf.length == 11){
+
+                auxCpf = '';
+
+                for(let i = 0 ; i<14 ; i++){
+
+                    switch(i){
+
+                        case 0: case 1: case 2:{
+
+                            auxCpf += nCpf.charAt(i);
+
+                            break;
+                        }
+                        
+                        case 3: case 7:{
+
+                            auxCpf += '.';
+
+                            break;
+                        }
+                        case 4: case 5: case 6:{
+ 
+                            auxCpf += nCpf.charAt(i-1);
+
+                            break;
+                        }
+                        case 8: case 9: case 10:{
+
+                            auxCpf += nCpf.charAt(i-2);
+
+                            break;
+                        }
+                        case 11:{
+
+                            auxCpf += '-';
+
+                            break;
+                        }
+                        case 12: case 13:{
+
+                            auxCpf += nCpf.charAt(i-3);
+
+                            break;
+                        }
+                    }
+                }
+
+                a.cpf = auxCpf;
+
+                valid = true;
+
+            }else{
+
+                if(auxCpf == "" || auxCpf == null){
+                
+                    inputVazia('pCpf', 'CPF');
+
+                }else{
+
+                    inputInvalida('pCpf', 'CPF');
+                }
+            }
+
+            return valid;
+        }
+
+        function maskCpf(){
+            
+            let cpfAux = document.getElementById('icpf');
+            
+            document.getElementById('icpf').value = cpfAux.value.trim();
+            
+            while(cpfAux.value.includes(" ")){
+                
+                document.getElementById('icpf').value.replace(" ", "");
+            }
+            if(cpfAux.value.length == 3 || cpfAux.value.length == 7){
+                
+                cpfAux.value += '.';
+                
+            }else{
+                
+                if(cpfAux.value.length == 11){
+                    
+                    document.getElementById('icpf').value += '-';
+                }
+            }
+        }
+
+        function validCidade(a){
+
+            if(a == 0){
+
+                a = new Aluno();
+
+                a.cidade = document.getElementById('icidade').value;
+            }
+
+            let valid = false;
+            let alfabeto = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','á','à','ã','â','ä','é','è','ê','ë','í','ì','î','ï','ó','ò','õ','ô','ö','ú','ù','û','ü','ç',' '];
+
+            if(a.cidade != '' && a.cidade != null && document.getElementById('iufNascimento').value != ''){
+
+                a.cidade = a.cidade.trim();
+                
+                while(a.cidade.includes('  ')){
+
+                    a.cidade = a.cidade.replace('  ',' ');
+                }
+
+                let cidadeAux = a.cidade.toLowerCase();
+
+                let cont = 0;
+
+                for(let i = 0 ; i<cidadeAux.length ; i++){
+
+                    for(let j = 0 ; j<alfabeto.length ; j++){
+
+                        if(cidadeAux.charAt(i) == alfabeto[j]){
+
+                            cont++;
+                        }
+                    }
+                }
+
+                if(cont == cidadeAux.length){
+
+                    a.uf = document.getElementById('iufNascimento').value;
+
+                    valid = true;
+
+                }else{
+
+                    inputInvalida('pCidade', 'cidade');
+                }
+            }else{
+
+                inputVazia('pCidade', 'cidade');
+            }
+
+            return valid;
+        }
+
+        function inputVazia(p,i){
+
+            document.getElementById(p).innerHTML = i+' não informado.';
+        }
+
+        function inputInvalida(p,i){
+
+            document.getElementById(p).innerHTML = 'O '+i+' digitado é inválido.';
+        }
+
+        function limparP(p){
+
+            document.getElementById(p).innerHTML = null;
+        }
+    </script>
+</html>

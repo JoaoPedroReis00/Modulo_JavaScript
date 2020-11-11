@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="Aula17.css">
+    </head>
+
+    <body>
+
+        <div class="divPrincipal">
+
+            <header>
+                <h1>Lista de alunos cadastrados:</h1>
+                <hr>
+            </header>
+            <br>
+            <table border="5">
+                <thead>
+                    <tr>
+                        <td>N°</td>
+                        <td>Nome</td>
+                        <td>Idade</td>
+                        <td>CPF</td>
+                        <td>Cidade Natal</td>
+                    </tr>
+                </thead>
+                <tbody id="iTbody">
+
+                </tbody>
+            </table>
+
+            <br><br>
+
+        </div>
+
+        <button onclick="voltar()" id="btnVoltar">Voltar</button>
+        <button onclick="sair()" id="btnSair">Sair</button>
+
+    </body>
+
+    <script>
+        
+        console.log(window.localStorage.getItem('lista'));
+
+        var lista = JSON.parse(localStorage.getItem('lista'));
+
+
+        for(let i = 0 ; i<lista.length ; i++){
+
+            document.getElementById('iTbody').innerHTML += '<tr><td>'+lista[i].numero+'</td><td>'+lista[i].nome+'</td><td>'+lista[i].idade+'</td><td>'+lista[i].cpf+'</td><td>'+lista[i].cidade+'('+lista[i].uf.toUpperCase()+')'+'</td></tr>';
+        }
+
+        function voltar(){
+
+            window.open('CadastroAlunos.html','_self');
+        }
+
+        function sair(){
+
+            window.open('Index.html','_self');
+        }
+    </script>
+</html>
