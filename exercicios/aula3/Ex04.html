@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 4</title>
+    </head>
+    <body>
+        <script>
+            var n1 = prompt("Digite o primeiro número:");
+            var n2 = prompt("Digite o segundo número:");
+            var n3 = prompt("Digite o terceiro número:");
+
+            var maior = n1;
+
+            if(n2>maior){
+                maior = n2;
+
+            }
+            if(n3>maior){
+                maior = n3;
+            }
+
+            document.write("<p>1° valor : "+n1+"</p>");
+            document.write("<p>2° valor : "+n2+"</p>");
+            document.write("<p>3° valor : "+n3+"</p>");
+            document.write("<h1>O maior valor entre "+n1+", "+n2+", "+n3+" é "+maior+"</h1>");
+        </script>
+    </body>
+</html>

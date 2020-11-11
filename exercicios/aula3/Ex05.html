@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 5</title>
+    </head>
+    <body>
+        <script>
+            var n1 = prompt("Digite o primeiro número:");
+            var n2 = prompt("Digite o segundo número:");
+            var n3 = prompt("Digite o terceiro número:");
+            var n4 = prompt("Digite o quarto número:");
+
+            var menor = n1;
+
+            if(n2<menor){
+                menor = n2;
+
+            }
+            if(n3<menor){
+                menor = n3;
+            }
+            if(n4<menor){
+                menor = n4;
+            }
+
+            document.write("<p>1° valor : "+n1+"</p>");
+            document.write("<p>2° valor : "+n2+"</p>");
+            document.write("<p>3° valor : "+n3+"</p>");
+            document.write("<p>4° valor : "+n4+"</p>");
+            document.write("<h1>O menor valor entre "+n1+", "+n2+", "+n3+", "+n4+" é "+menor+"</h1>");
+        </script>
+    </body>
+</html>
