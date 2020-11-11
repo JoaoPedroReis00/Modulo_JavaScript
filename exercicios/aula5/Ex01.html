@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 1</title>
+    </head>
+
+    <body style="font-family: consolas;">
+
+        <script>
+
+            do{
+                var l = prompt("Digite o tamanho do lado do quadrado:");
+                
+                l = parseInt(l);
+
+            }while(l<2);
+
+            for(var i = 1 ; i<=l ; i++){
+
+                for(var j = 1 ; j<=l ; j++){
+
+                    document.write("@");
+                }
+                document.write("<br>");
+            }
+        </script>
+
+    </body>
+</html>
