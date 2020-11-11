@@ -1,0 +1,101 @@
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: gold;
+}
+header{
+
+    font-size: 30px;
+}
+h1{
+    margin-left: 50px;
+}
+form{
+    font-size: 35px;
+}
+.divPrincipal{
+ 
+    border: navy outset 5px;
+    background-color: whitesmoke;
+    height: auto;
+    width: 900px;
+    border-radius: 50px;
+}
+.divH{
+
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+label{
+
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+input{
+
+    position: absolute;
+    font-size: 25px;
+    height: 30px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border: 1px solid gray;
+    border-radius: 50px;
+}
+select{
+
+    position: absolute;
+    font-size: 25px;
+    width: 350px;
+    height: 30px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border: 1px solid gray;
+    border-radius: 50px;
+}
+.inputTipo1{
+
+    width: 800px;
+}
+.inputTipo2{
+
+    width: 350px;
+}
+.inputTipo3{
+
+    margin-top: -99px;
+    margin-left: 500px;
+    width: 350px;
+}
+.label2{
+
+    margin-top: -109px;
+    margin-left: 500px
+}
+#endereco{
+
+    margin-top: 50px;
+}
+textarea{
+
+    margin-left: 50px;
+    width: 800px;
+    height: 400px;
+    font-size: 20px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    border: 1px gray solid;
+}
+#enviar{
+
+    width: 400px;
+    height: 50px;
+    font-size: 40px;
+    margin-left: 250px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: navy outset 5px;
+
+}

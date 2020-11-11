@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Formulário</title>
+        <link rel="stylesheet" type="text/css" href="Formulario.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Preencha seu formulário:</h1>
+        </header>
+
+        <form>
+
+            <div class="divPrincipal">
+
+                <div class="divH">
+                    <h2>Informações Pessoais:</h2>
+                </div>
+
+                <label>Nome</label>
+                <br>
+                <input type="text" id="inome" class="inputTipo1" onfocus="limparInput('inome')" onblur="verificarNome('inome')">
+
+                <br><br>
+        
+                <label>Nome da Mãe</label>
+                <br>
+                <input type="text" id="inomeMae" class="inputTipo1" onfocus="limparInput('inomeMae')" onblur="verificarNome('inomeMae')">
+
+                <br><br>
+        
+                <label>Nome do Pai</label>
+                <br>
+                <input type="text" id="inomePai" class="inputTipo1" onfocus="limparInput('inomePai')" onblur="verificarNome('inomePai')">
+
+                <br><br>
+        
+                <label >Identidade</label>
+                <br>
+                <input type="text" id="iidt" class="inputTipo2" onfocus="limparInput('iidt')" onblur="verificarIdt()">
+
+                <br><br>
+        
+                <label class="label2">CPF</label>
+                <br>
+                <input type="text" id="icpf" class="inputTipo3" onfocus="limparInput('icpf')" onblur="verificarCpf()">
+        
+                <label >Tel</label>
+                <br>
+                <input type="tel" id="itel" class="inputTipo2" onfocus="limparInput('itel')" onblur="verificarTel('itel')">
+
+                <br><br>
+        
+                <label class="label2">Cel</label>
+                <br>
+                <input type="tel" id="icel" class="inputTipo3" onfocus="limparInput('icel')" onblur="verificarTel('icel')">
+    
+                <label>Email</label>
+                <br>
+                <input type="email" id="iemail" class="inputTipo1" onfocus="limparInput('iemail')" onblur="verificarEmail()">
+
+                <br><br>
+                
+                <label>Gênero</label>
+                <br>
+                <select id="igenero" class="inputTipo2" onfocus="limparInput('igenero')">
+                    <option value=""></option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="nb">Não Binário</option>
+                    <option value="outro">Outro</option>
+                </select>
+
+                <br><br>
+        
+                <label class="label2">Data de nascimento</label>
+                <br>
+                <input type="date" id="idNascimento" class="inputTipo3" onfocus="limparInput('idNascimento')" onblur="verificarData()">
+        
+                <label>Cidade de nascimento</label>
+                <br>
+                <input type="text" id="icNascimento" class="inputTipo1" onfocus="limparInput('icNascimento')" onblur="verificarNome('icNascimento')">
+
+                <br><br>
+
+                <label>UF:</label>
+                <br>
+                <select id="iufNascimento" class="inputTipo2" onfocus="limparInput('iufNascimento')">
+                    <option value=""></option>
+                    <option value="ac">AC</option>
+                    <option value="al">AL</option>
+                    <option value="ap">AP</option>
+                    <option value="am">AM</option>
+                    <option value="ba">BA</option>
+                    <option value="ce">CE</option>
+                    <option value="df">DF</option>
+                    <option value="es">ES</option>
+                    <option value="go">GO</option>
+                    <option value="ma">MA</option>
+                    <option value="mt">MT</option>
+                    <option value="ms">MS</option>
+                    <option value="mg">MG</option>
+                    <option value="pa">PA</option>
+                    <option value="pb">PB</option>
+                    <option value="pr">PR</option>
+                    <option value="pe">PE</option>
+                    <option value="pi">PI</option>
+                    <option value="rj">RJ</option>
+                    <option value="rn">RN</option>
+                    <option value="rs">RS</option>
+                    <option value="ro">RO</option>
+                    <option value="rr">RR</option>
+                    <option value="sc">SC</option>
+                    <option value="sp">SP</option>
+                    <option value="se">SE</option>
+                    <option value="to">TO</option>
+                </select>
+
+                <br><br>
+
+                <label class="label2">Nível de escolaridade:</label>
+                <br>
+                <select id="iescolaridade" class="inputTipo3" onfocus="limparInput('iescolaridade')">
+                    <option value=""></option>
+                    <option value="1i">1° grau incompleto</option>
+                    <option value="1c">1° grau completo</option>
+                    <option value="2i">2° grau incompleto</option>
+                    <option value="2c">2° grau completo</option>
+                    <option value="3i">3° grau incompleto</option>
+                    <option value="3c">3° grau completo</option>
+                </select>
+
+            </div>
+
+            <br>
+
+            <div id="iendereco"  class="divPrincipal">
+                
+                <div class="divH">
+                    <h2>Endereço:</h2>
+                </div>
+
+                <label>CEP</label>
+                <br>
+                <input type="text" id="icep" class="inputTipo2" onfocus="limparInput('icep')" onblur="verificarCep()">
+
+                <br><br>
+
+                <label class="label2">UF:</label>
+                <br>
+                <select id="iufEndereco" class="inputTipo3" onfocus="limparInput('iufEndereco')">
+                    <option value=""></option>
+                    <option value="ac">AC</option>
+                    <option value="al">AL</option>
+                    <option value="ap">AP</option>
+                    <option value="am">AM</option>
+                    <option value="ba">BA</option>
+                    <option value="ce">CE</option>
+                    <option value="df">DF</option>
+                    <option value="es">ES</option>
+                    <option value="go">GO</option>
+                    <option value="ma">MA</option>
+                    <option value="mt">MT</option>
+                    <option value="ms">MS</option>
+                    <option value="mg">MG</option>
+                    <option value="pa">PA</option>
+                    <option value="pb">PB</option>
+                    <option value="pr">PR</option>
+                    <option value="pe">PE</option>
+                    <option value="pi">PI</option>
+                    <option value="rj">RJ</option>
+                    <option value="rn">RN</option>
+                    <option value="rs">RS</option>
+                    <option value="ro">RO</option>
+                    <option value="rr">RR</option>
+                    <option value="sc">SC</option>
+                    <option value="sp">SP</option>
+                    <option value="se">SE</option>
+                    <option value="to">TO</option>
+                </select>
+
+                <label>Cidade</label>
+                <br>
+                <input type="text" id="icidade" class="inputTipo1" onfocus="limparInput('icidade')" onblur="verificarNome('icidade')">
+
+                <br><br>
+        
+                <label>Bairro</label>
+                <br>
+                <input type="text" id="ibairro" class="inputTipo1" onfocus="limparInput('ibairro')" onblur="verificarNome('ibairro')">
+
+                <br><br>
+        
+                <label>Rua</label>
+                <br>
+                <input type="text" id="irua" class="inputTipo1" onfocus="limparInput('icidade')" onblur="verificarNome('icidade')">
+
+                <br><br>
+        
+                <label>N°</label>
+                <br>
+                <input type="number" id="inumero" class="inputTipo2" onfocus="limparInput('inumero')">
+
+                <br><br>
+        
+                <label class="label2">Complemento(opcional)</label>
+                <br>
+                <input type="text" id="icomp" class="inputTipo3">
+
+                <br><br>
+
+            </div>
+
+            <br>
+
+            <div  class="divPrincipal">
+
+                <div class="divH">
+                    <h2>Qualificações(mais que 100 caracteres):</h2>
+                </div>
+
+                <textarea id="itexto" name="texto" onfocus="limparInput('itexto')" onblur="verificarTxt()"></textarea>
+
+                <br><br><br>
+            </div>
+
+            <br>
+
+            <div  class="divPrincipal">
+
+                <div class="divH">
+                    <h2>Cadastro de automóvel:</h2>
+                </div>
+
+                <label>Nome do modelo:</label>
+                <br>
+                <input type="text" id="inomeModelo" class="inputTipo1" onfocus="limparInput('inomeModelo')">
+
+                <br><br>
+
+                <label>Marca:</label>
+                <br>
+                <input type="text" id="imarca" class="inputTipo2" onfocus="limparInput('imarca')">
+
+                <br><br>
+
+                <label class="label2">Cor:</label>
+                <br>
+                <select id="icor" class="inputTipo3" onfocus="limparInput('icor')">
+                    <option value=""></option>
+                    <option value="vermelho">vermelho</option>
+                    <option value="verde">verde</option>
+                    <option value="amarelo">amarelo</option>
+                    <option value="azul">azul</option>
+                    <option value="laranja">laranja</option>
+                    <option value="vinho">vinho</option>
+                    <option value="marrom">marrom</option>
+                    <option value="prata">prata</option>
+                    <option value="branco">branco</option>
+                    <option value="preto">preto</option>
+                    <option value="cinza">cinza</option>
+                </select>
+
+                <label>Ano do modelo:</label>
+                <br>
+                <input type="number" id="ianoModelo" class="inputTipo2" onfocus="limparInput('ianoModelo')" onblur="verificarAno('ianoModelo')">
+
+                <br><br>
+
+                <label class="label2">Ano do fabricação:</label>
+                <br>
+                <input type="number" id="ianoFabricacao" class="inputTipo3" onfocus="limparInput('ianoFabricacao')" onblur="verificarAno('ianoFabricacao')">
+
+                <label>Placa:</label>
+                <br>
+                <input type="text" id="iplaca" class="inputTipo1" onfocus="limparInput('iplaca')" onblur="verificarPlaca()">
+
+                <br><br>
+
+            </div>
+
+            <input type="submit" value="Enviar" id="enviar" onclick="enviar()">
+
+            <br><br>
+        
+        </form>
+        <br>
+
+        <script>
+
+            console.log(document.getElementById("igenero").value)
+
+            var nome = document.getElementById("inome");
+            var nomeMae = document.getElementById("inomeMae");
+            var nomePai = document.getElementById("inomePai");
+            var idt = document.getElementById("iidt");
+            var cpf = document.getElementById("icpf");
+            var tel = document.getElementById("itel");
+            var cel = document.getElementById("icel");
+            var email = document.getElementById("iemail");
+            var genero = document.getElementById("igenero");
+            var dataNascimento = document.getElementById("idNascimento");
+            var cNascimento = document.getElementById("icNascimento");
+            var ufNascimento = document.getElementById("iufNascimento");
+            var escolaridade = document.getElementById("iescolaridade");
+            var cep = document.getElementById("icep");
+            var ufEndereco = document.getElementById("iufEndereco");
+            var cidade = document.getElementById("icidade");
+            var bairro = document.getElementById("ibairro");
+            var rua = document.getElementById("irua");
+            var numero = document.getElementById("inumero");
+            var texto = document.getElementById("itexto");
+            var nomeModelo = document.getElementById("inomeModelo");
+            var marca = document.getElementById("imarca");
+            var cor = document.getElementById("icor");
+            var anoModelo = document.getElementById("ianoModelo");
+            var anoFabricacao = document.getElementById("ianoFabricacao");
+            var placa = document.getElementById("iplaca");
+
+            var numeros = ['0','1','2','3','4','5','6','7','8','9'];
+            var alfabeto = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','á','à','ã','â','ä','é','è','ê','ë','í','ì','î','ï','ó','ò','õ','ô','ö','ú','ù','û','ü','ç'];
+            
+
+
+            function limparInput(idInput){
+
+                if(document.getElementById(idInput).style.borderColor == "red"){
+
+                    document.getElementById(idInput).style.borderColor = "black";
+                    document.getElementById(idInput).style.color = "black";
+                    document.getElementById(idInput).value = null;
+
+                }else{
+
+                    if(document.getElementById(idInput).style.borderColor == "green"){
+
+                        document.getElementById(idInput).style.borderColor = "black";
+                    }
+                }
+            }
+
+            function verificarEmail(){
+                
+                var verEmail = false;
+                var valorArroba = null;
+                var e = [];
+                var contArroba = null;
+                var contPonto = null;
+
+                for(let i = 0 ; i<email.value.length ; i++){
+
+                    e.push(email.value.charAt(i));
+                }
+
+                for(let i = 0 ; i<e.length ; i++){
+
+                    if(e[i] == '@'){
+
+                        contArroba++;
+
+                        for(let j = i ; j<e.length ; j++){
+
+                            if(e[j] == '.'){
+
+                                contPonto++;
+                                valorArroba = i;
+                            }
+                        }
+                    }
+                }
+
+                if(contArroba == 1){
+
+                    if(valorArroba >= 2){
+                        
+                        if(contPonto == 1){
+
+                            
+                            
+                            verEmail = true;
+                            
+                        }
+                    }
+                }
+
+                if(verEmail == true){
+
+                    email.style.borderColor = "green";
+
+                }else{
+
+                email.style.borderColor = "red";
+                email.style.color = "red";
+                email.value = "O email digitado é inválido";
+                }
+            }
+
+            function verificarNome(idNome){
+
+                var valid = true;
+
+                while(nome.value.includes("  ")){
+                    
+                    document.getElementById(idNome).value = document.getElementById(idNome).value.replace("  "," ");
+                }
+
+                document.getElementById(idNome).value = document.getElementById(idNome).value.trim();
+
+                var nomeAux = document.getElementById(idNome).value;
+
+                nomeAux = nomeAux.toLowerCase();
+
+                if(nomeAux == null || nomeAux == ""){
+
+                    valid = false;
+
+                }else{
+
+                    for(let i = 0 ; i<nomeAux.length && valid == true ; i++){
+
+                        var aux = false;
+
+                        for(let j = 0 ; j<alfabeto.length && aux == false; j++){
+
+                            if(nomeAux.charAt(i) == alfabeto[j] || nomeAux.charAt(i) == " "){
+
+                                aux = true;
+                            }
+                        }
+                        if(aux == false){
+                            
+                        valid = false;
+                        }
+                    }
+                }
+
+                if(valid == false){
+
+                    document.getElementById(idNome).style.borderColor = "red";
+                    document.getElementById(idNome).style.color = "red";
+                    document.getElementById(idNome).value = "O nome digitado é inválido";
+                
+                }else{
+
+                    document.getElementById(idNome).style.borderColor = "green";
+                }
+            }
+
+            function verificarTel(tipo){
+
+                var telAux = document.getElementById(tipo);
+                var numTel = null;
+                var valid = true;
+
+                for(let i = 0 ; i<telAux.value.length && valid == true; i++){
+
+                    var aux = false;
+
+                    for(let j = 0 ; j<numeros.length && aux == false; j++){
+
+                        if(telAux.value.charAt(i) == numeros[j]){
+
+                            aux = true;
+                        }
+                    }
+                    if(aux == false){
+
+                        valid = false;
+                    }
+                }
+                if(valid == true){
+
+                    if(tipo == 'icel'){
+
+                        if(telAux.value.length == 11){
+
+                            numTel = ("("+telAux.value.charAt(0)+telAux.value.charAt(1)+") "+telAux.value.charAt(2)+telAux.value.charAt(3)+telAux.value.charAt(4)+telAux.value.charAt(5)+telAux.value.charAt(6)+"-"+telAux.value.charAt(7)+telAux.value.charAt(8)+telAux.value.charAt(9)+telAux.value.charAt(10));
+
+                            telAux.value = numTel;
+
+                            telAux.style.borderColor = "green";
+
+                        }else{
+
+                            telAux.style.borderColor = "red";
+                            telAux.style.color = "red";
+                            telAux.value = "O telefone digitado é inválido.";
+                        }
+
+                    }else{
+
+                        if(telAux.value.length == 10){
+
+                            numTel = ("("+telAux.value.charAt(0)+telAux.value.charAt(1)+") "+telAux.value.charAt(2)+telAux.value.charAt(3)+telAux.value.charAt(4)+telAux.value.charAt(5)+"-"+telAux.value.charAt(6)+telAux.value.charAt(7)+telAux.value.charAt(8)+telAux.value.charAt(9));
+                        
+                            telAux.value = numTel;
+                            
+                            telAux.style.borderColor = "green";
+
+                        }else{
+
+                            telAux.style.borderColor = "red";
+                            telAux.style.color = "red";
+                            telAux.value = "O telefone digitado é inválido.";
+                        }
+                    }
+                }
+            }
+
+            function verificarIdt(){
+
+                var valid = true;
+
+                for(let i = 0 ; i<idt.value.length && valid == true; i++){
+
+                    var aux = false;
+                    
+                    for(let j = 0 ; j<numeros.length && aux == false; j++){
+                        
+                        if(idt.value.charAt(i) == numeros[j]){
+                            
+                            aux = true;
+                        }
+                    }
+                    if(aux == false){
+                        
+                        valid == false;
+                    }
+                }
+                if(idt.value.length != 9){
+
+                    valid = false;
+                }
+
+                if(valid == false){
+
+                    idt.style.borderColor = "red";
+                    idt.style.color = "red";
+                    idt.value = "O número do RG digitado é inválido.";
+
+                }else{
+
+                    idt.value = idt.value.charAt(0)+idt.value.charAt(1)+"."+idt.value.charAt(2)+idt.value.charAt(3)+idt.value.charAt(4)+"."+idt.value.charAt(5)+idt.value.charAt(6)+idt.value.charAt(7)+"-"+idt.value.charAt(8);
+
+                    idt.style.borderColor = "green";
+                }
+                
+            }
+
+            function verificarCpf(){
+
+                var valid = true;
+
+                for(let i = 0 ; i<cpf.value.length && valid == true ; i++){
+
+                    var aux = false;
+                    
+                    for(let j = 0 ; j<numeros.length && aux == false ; j++){
+                        
+                        if(cpf.value.charAt(i) == numeros[j]){
+                            
+                            aux = true;
+                        }
+                    }
+                    if(aux == false){
+
+                        valid == false;
+                    }
+                }
+                if(cpf.value.length != 11){
+
+                    valid = false;
+                }
+
+                if(valid == false){
+
+                    cpf.style.borderColor = "red";
+                    cpf.style.color = "red";
+                    cpf.value = "O CPF digitado é inválido.";
+
+                }else{
+
+                    cpf.value = cpf.value.charAt(0)+cpf.value.charAt(1)+cpf.value.charAt(2)+"."+cpf.value.charAt(3)+cpf.value.charAt(4)+cpf.value.charAt(5)+"."+cpf.value.charAt(6)+cpf.value.charAt(7)+cpf.value.charAt(8)+"-"+cpf.value.charAt(9)+cpf.value.charAt(10);
+
+                    cpf.style.borderColor = "green";
+                }
+                
+            }
+
+            function verificarData(){
+
+                var data = new Date;
+                var valid = true;
+
+                var ano = "";
+                var mes = "";
+                var dia = "";
+
+                for(let i = 0 ; i<dataNascimento.value.length ; i++){
+
+                    switch(i){
+
+                        case 0: case 1: case 2: case 3:{
+
+                            ano += dataNascimento.value.charAt(i);
+
+                            break;
+                        }
+                        case 5: case 6:{
+
+                            mes += dataNascimento.value.charAt(i);
+
+                            break;
+                        }
+                        case 8: case 9:{
+
+                            dia += dataNascimento.value.charAt(i);
+
+                            break;
+                        }
+                    }
+                }
+                console.log(dia+"/"+mes+"/"+ano);
+                console.log(data.getDay()+"/"+data.getMonth()+"/"+data.getFullYear());
+
+                if(ano < 1900 || ano > data.getFullYear()){
+
+                    valid = false;
+
+                }else{
+
+                    if(ano == data.getFullYear()){
+
+                        if(mes > data.getMonth()){
+
+                            valid = false
+
+                        }else{
+
+                            if(mes == data.getMonth()){
+
+                                if(dia >= data.getDay()){
+
+                                    valid = false;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(valid == false){
+
+                    dataNascimento.style.borderColor = "red";
+
+                }else{
+
+                    dataNascimento.style.borderColor = "green";
+                }
+            }
+
+            function verificarTxt(){
+                
+                if(document.getElementById("itexto").value.length > 100){
+                    
+                    document.getElementById("itexto").style.borderColor = "green";
+                    
+                }else{
+                        
+                    document.getElementById("itexto").style.borderColor = "red";
+                    document.getElementById("itexto").style.color = "red";
+                    document.getElementById("itexto").value = "Por favor, digite mais que 100 caracteres";
+                }
+            }
+
+            function verificarCep(){
+
+                var valid = true;
+
+                for(let i = 0 ; i<cep.value.length && valid == true; i++){
+
+                    var aux = false;
+
+                    for(let j = 0 ; j<numeros.length && aux == false ; j++){
+
+                        if(cep.value.charAt(i) == numeros[i]){
+
+                            aux = true;
+                        }
+                    }
+                    if(aux == false){
+
+                        valid = false;
+                    }
+                }
+                if(cep.value.length != 8){
+
+                    valid = false;
+                }
+
+                if(valid == false){
+
+                    cep.style.borderColor = "red";
+                    cep.style.color = "red";
+                    cep.value = "O CEP digitado é inválido.";
+
+                }else{
+
+                    cep.value = cep.value.charAt(0)+cep.value.charAt(1)+cep.value.charAt(2)+cep.value.charAt(3)+cep.value.charAt(4)+"-"+cep.value.charAt(5)+cep.value.charAt(6)+cep.value.charAt(7);
+
+                    cep.style.borderColor = "green";
+                }
+            }
+
+            function verificarAno(aux){
+
+                var anoAux = document.getElementById(aux);
+
+                var intAno = parseInt(anoAux.value);
+
+                if(intAno < 1900 || intAno > 2020){
+
+                    anoAux.style.borderColor = "red";
+
+                }else{
+
+                    if(aux == 'ianoModelo'){
+
+                        anoAux.style.borderColor = "green";
+
+                    }else{
+
+                        if(intAno != parseInt(document.getElementById('ianoModelo').value) && intAno != (parseInt(document.getElementById('ianoModelo').value) + 1)){
+
+                            anoAux.style.borderColor = "red";
+
+                        }else{
+
+                            anoAux.style.borderColor = "green";
+                        }
+                    }
+                }
+            }   
+
+            function verificarPlaca(){ 
+
+                var valid = true;
+
+                placa.value = placa.value.toLowerCase();
+
+                if(placa.value.length != 8){
+
+                    console.log(placa.value.length);
+
+                    valid = false;
+
+                }else{
+
+                    for(let i = 0 ; i<placa.value.length && valid == true; i++){
+
+                        console.log(placa.value.charAt(i));
+
+                        switch(i){
+
+                            case 0: case 1: case 2:{
+
+                                var aux = false;
+
+                                for(let j = 0 ; j<26 && aux == false; j++){
+
+                                    if(placa.value.charAt(i) == alfabeto[j]){
+
+                                        console.log('V');
+
+                                        aux = true;
+                                    }
+                                }
+                                if(aux == false){
+
+                                    console.log('F');
+
+                                    valid = false;
+                                }
+                                break;
+                            }
+                            case 3:{
+
+                                if(placa.value.charAt(3) != " "){
+
+                                    console.log('F');
+                                    
+                                    valid = false;
+                                }
+                                break;
+                            }
+                            case 4: case 6: case 7:{
+
+                                var aux = false;
+
+                                for(let j = 0 ; j<numeros.length && aux == false ; j++){
+
+                                    if(placa.value.charAt(i) == numeros[j]){
+
+                                        console.log('V');
+
+                                        aux = true;
+                                    }
+                                }
+
+                                if(aux == false){
+
+                                    console.log('F');
+                                
+                                    valid = false;
+                                }
+                                break;
+                            }
+                            case 5:{
+
+                                var aux = false;
+
+                                for(let j = 0 ; j<numeros.length && aux == false ; j++){
+
+                                    if(placa.value.charAt(i) == numeros[j]){
+
+                                        console.log('V');
+
+                                        aux = true;
+                                    }
+                                }
+
+                                if(aux == false){
+
+                                    for(let j = 0 ; j<alfabeto.length && aux == false ; j++){
+
+                                        if(placa.value.charAt(i) == alfabeto[j]){
+
+                                            console.log('V');
+                                            
+                                            aux = true;
+                                        }
+                                    }
+                                }
+                                
+                                if(aux == false){
+
+                                    console.log('F');
+
+                                    valid = false;
+
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+                if(valid == true){
+                    
+                    document.getElementById("iplaca").style.borderColor = "green";
+                    document.getElementById("iplaca").value = placa.value.toUpperCase();
+
+                }else{
+
+                    document.getElementById("iplaca").style.borderColor = "red";
+                    document.getElementById("iplaca").style.color = "red";
+                    document.getElementById("iplaca").value = "A placa informada é inválida.";
+                }
+            }
+
+            function enviar(){
+
+                var vetorId = [];
+                var valid = true;
+
+                vetorId.push('inome'); vetorId.push('inomeMae'); vetorId.push('inomePai'); vetorId.push('iidt');
+                vetorId.push('icpf'); vetorId.push('itel'); vetorId.push('icel'); vetorId.push('iemail');
+                vetorId.push('igenero'); vetorId.push('idNascimento'); vetorId.push('icNascimento'); vetorId.push('iufNascimento');
+                vetorId.push('iescolaridade'); vetorId.push('icep'); vetorId.push('iufEndereco'); vetorId.push('icidade');
+                vetorId.push('ibairro'); vetorId.push('irua'); vetorId.push('inumero'); vetorId.push('itexto');
+                vetorId.push('inomeModelo'); vetorId.push('imarca'); vetorId.push('icor'); vetorId.push('ianoModelo');
+                vetorId.push('ianoFabricacao'); vetorId.push('iplaca');
+
+                for(let i = 0 ; i<vetorId.length ; i++){
+
+                    if(document.getElementById(vetorId[i]).value == "" || document.getElementById(vetorId[i]).value == null){
+
+                        erro(vetorId[i]);
+
+                        valid = false;
+                    }
+                }
+                if(valid == false){
+
+                    alert('Área necessária não preenchida.');
+
+                }else{
+
+                    alert('Formulário enviado com sucesso.');
+                }
+            }
+            function erro(idInput){
+
+                document.getElementById(idInput).style.borderColor = "red";
+                document.getElementById(idInput).style.color = "red";
+                document.getElementById(idInput).value = "Informação não informada.";
+            }
+
+        </script>
+
+    </body> 
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Fale Conosco</title>
+        <link rel="stylesheet" type="text/css" href="Fale Conosco.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Fale Conosco</h1>
+            <hr>
+        </header>
+
+        <form>
+
+            <br> 
+
+            <label>Nome(apenas letras):</label>
+            <br>
+            <input id="inome" type="text" onfocus="limparInput('inome')" onblur="verificarNome()">
+                
+            <br><br><br>
+
+            <label>Email:</label>
+            <br>
+            <input id="iemail" type="email" onfocus="limparInput('iemail')" onblur="verificarEmail()">
+                  
+            <br><br><br>
+
+            <label>assunto:</label>
+            <br>
+            <input id="iassunto" type="text" onfocus="limparInput('iassunto')">
+
+            <br><br><br>
+
+            <label>Texto(mais que 50 caracteres):</label>
+            <br>
+            <textarea id="itexto" onfocus="limparInput('itexto')" onblur="verificarTxt()"></textarea>
+                  
+            <br><br><br>
+
+            <button onclick="enviar()">Enviar</button>
+
+            <br><br><br>
+
+        </form>
+        <br>
+
+        <script>
+
+            function verificarNome(){
+
+                var nome = document.getElementById("inome").value;
+                var valid = false;
+
+                nome = nome.toLowerCase();
+
+                if(nome == null || nome == ""){
+
+                    valid = true;
+
+                }else{
+
+                    for(let i = 0 ; i<nome.length ; i++){
+                        
+                        if( nome.charAt(i) != 'a' && nome.charAt(i) != 'b' && nome.charAt(i) != 'c' && nome.charAt(i) != 'd' && nome.charAt(i) != 'e' && nome.charAt(i) != 'f' && nome.charAt(i) != 'g' && nome.charAt(i) != 'h' && nome.charAt(i) != 'i' && nome.charAt(i) != 'j' && nome.charAt(i) != 'k' && nome.charAt(i) != 'l' && nome.charAt(i) != 'm' && nome.charAt(i) != 'n' && nome.charAt(i) != 'o' && nome.charAt(i) != 'p' && nome.charAt(i) != 'q' && nome.charAt(i) != 'r' && nome.charAt(i) != 's' && nome.charAt(i) != 't' && nome.charAt(i) != 'u' && nome.charAt(i) != 'v' && nome.charAt(i) != 'w' && nome.charAt(i) != 'x' && nome.charAt(i) != 'y' && nome.charAt(i) != 'z' && nome.charAt(i) != 'á' && nome.charAt(i) != 'à' && nome.charAt(i) != 'ã' && nome.charAt(i) != 'â' && nome.charAt(i) != 'ä' && nome.charAt(i) != 'é' && nome.charAt(i) != 'è' && nome.charAt(i) != 'ê' && nome.charAt(i) != 'ë' && nome.charAt(i) != 'í' && nome.charAt(i) != 'ì' && nome.charAt(i) != 'ï' && nome.charAt(i) != 'ó' && nome.charAt(i) != 'ò' && nome.charAt(i) != 'ó' && nome.charAt(i) != 'õ' && nome.charAt(i) != 'ô' && nome.charAt(i) != 'ö' && nome.charAt(i) != 'ú' && nome.charAt(i) != 'ù' && nome.charAt(i) != 'û' && nome.charAt(i) != 'ü' && nome.charAt(i) != 'ç'){
+                            
+                        valid = true;
+                        }
+                    }
+                }
+
+                if(valid == true){
+
+                    document.getElementById("inome").style.border = "1px solid red";
+                    document.getElementById("inome").style.color = "red";
+                    document.getElementById("inome").value = "O nome digitado é inválido";
+                
+                }else{
+
+                    document.getElementById("inome").style.border = "1px solid green";
+                }
+            }
+        
+            function verificarEmail(){
+
+                var verEmail = false;
+                var valorArroba = null;
+                var email = document.getElementById("iemail").value;
+                var e = [];
+                var contArroba = null;
+                var contPonto = null;
+
+                for(let i = 0 ; i<email.length ; i++){
+
+                    e.push(email.charAt(i));
+                }
+
+                for(let i = 0 ; i<e.length ; i++){
+
+                    if(e[i] == '@'){
+
+                        contArroba++;
+
+                        for(let j = i ; j<e.length ; j++){
+
+                            if(e[j] == '.'){
+
+                                contPonto++;
+                                valorArroba = i;
+                            }
+                        }
+                    }
+                }
+
+                if(contArroba == 1){
+
+                    if(valorArroba >= 2){
+                        
+                        if(contPonto == 1){
+                            
+                            verEmail = true;
+                            
+                        }
+                    }
+                }
+
+                if(verEmail == true){
+
+                    document.getElementById("iemail").style.border = "1px solid green";
+
+                }else{
+                    
+                    document.getElementById("iemail").style.border = "1px solid red";
+                    document.getElementById("iemail").style.color = "red";
+                    document.getElementById("iemail").value = "O email digitado é inválido";
+                }
+            }
+
+            function verificarTxt(){
+
+                if(document.getElementById("itexto").value.length > 50){
+
+                    document.getElementById("itexto").style.border = "1px solid green";
+                
+                }else{
+
+                    document.getElementById("itexto").style.border = "1px solid red";
+                    document.getElementById("itexto").style.color = "red";
+                    document.getElementById("itexto").value = "Por favor, digite mais que 50 caracteres";
+                }
+            }
+
+            function enviar() {
+                
+                var nome = document.getElementById("inome").value;
+                var email = document.getElementById("iemail").value;
+                var assunto = document.getElementById("iassunto").value;
+                var txt = document.getElementById("itexto").value;
+
+                var aux = true;
+
+                if(nome == ""){
+
+                    aux = false;
+
+                    erro("inome");
+                }
+                if(email == ""){
+
+                    aux = false;
+
+                    erro("iemail");
+                }
+                if(assunto == ""){
+
+                    aux = false;
+
+                    erro("iassunto");
+                }
+                if(txt == ""){
+
+                    aux = false;
+
+                    erro("itexto");
+                }
+
+                if(aux  == true){
+
+                    alert("Mensagem enviada com sucesso.");
+                }
+            }
+
+            function erro(aux){
+
+                document.getElementById(aux).style.borderColor = "red";
+                document.getElementById(aux).style.color = "red";
+                document.getElementById(aux).value = "Informação não preenchida.";
+            }
+
+            function limparInput(i){
+
+                if(document.getElementById(i).style.borderColor == "red"){
+
+                    document.getElementById(i).style.borderColor = "gray";
+                    document.getElementById(i).style.color = "black";
+                    document.getElementById(i).value = "";
+
+                }
+            }
+            
+        </script>
+    </body>
+
+</html>
